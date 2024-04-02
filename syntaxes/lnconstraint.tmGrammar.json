@@ -1,0 +1,100 @@
+{
+    "name":"Infor LN Constraint",
+    "scopeName": "source.lnconstraint",
+    "fileTypes":[
+        ".lnc"
+    ],
+    "patterns": [
+        {"include": "#comments"},
+        {"include": "#keywords"},
+        {"include": "#numbers"},
+        {"include": "#strings"},
+        {"include": "#types"},
+        {"include": "#operators"},
+        {"include": "#variables"},
+        {"include": "#functions"}
+    ],
+    "repository":{
+        "comments":{
+            "begin":"(?=\\|)",
+            "beginCaptures":{
+                "1":{"name":"constant.numeric.decimal"}
+            },
+            "end":"(?<!\\s_)$\\n",
+            "patterns":[
+                {
+                    "name":"comment.line.lnconstraint",
+                    "match":"\\|.*"
+                }
+            ]
+        },
+        "keywords":{
+            "patterns":[
+                {
+                    "name":"keyword.conditional.lnconstraint",
+                    "match":"(?i:\\b(if|then|else|on case|case|default|\\?|\\:)\\b)"
+                },
+                {
+                    "name":"keyword.conditional.end.lnconstraint",
+                    "match":"(?i:\\b(endif|end case|break)\\b)"
+                },
+                {
+                    "name":"keyword.control.lnconstraint",
+                    "match":"(?i:\\b(goto|return)\\b)"
+                }
+            ]
+        },
+        "numbers":{
+            "patterns":[
+                {
+                    "name":"constant.numeric.decimal",
+                    "match":"(?<!\\w)-?\\d+(\\.\\d+)?"
+                }
+            ]
+        },
+        "strings":{
+            "patterns":[
+                {
+                    "name":"string.quoted.double",
+                    "match":"\\\"[^\\n\\r\\\"]*\""
+                }
+            ]
+        },
+        "types":{
+            "patterns":[
+                {
+                    "name":"support.type.builtin.lnconstraint",
+                    "match":"(\\b|\\s)(string|long|double)(\\b|\\s)"
+                }
+            ]
+        },
+        "operators":{
+            "patterns":[
+                {
+                    "name":"keyword.other.operator",
+                    "match":"(\\b|\\s)(\\*|\\/|&|\\+|-|=|>|<|<>|>=|<=|is)(\\b|\\s)"
+                },
+                {
+                    "name":"keyword.other.operator",
+                    "match":"(\\b|\\s)(and|or|not)(\\b|\\s)"
+                }
+            ]
+        },
+        "functions":{
+            "patterns":[
+                {
+                    "name":"support.function",
+                    "match":"(\\b|\\s)(\\w+)(?>\\()"
+                }
+            ]
+        },
+        "variables":{
+            "patterns":[
+                {
+                    "name":"variable.lnconstraint",
+                    "match":"(?<!goto\\s)\\b\\w+\\b(?!(:|\\())"
+                }
+            ]
+        }
+    }
+}

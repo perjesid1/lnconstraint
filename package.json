@@ -1,0 +1,42 @@
+{
+    "name": "ln-constraint-language-support",
+    "displayName": "Infor LN Constraint Language Support",
+    "description": "This extension adds syntax highlighting and snippets for Infor LN Constraint Language in VS Code.",
+    "version": "0.0.1",
+    "publisher": "perjesid1",
+    "engines": {
+        "vscode": "^1.28.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "lnconstraint",
+                "extensions": [
+                    ".lnc"
+                ],
+                "aliases": [
+                    "lnc",
+                    "LNConstraint"
+                ],
+                "configuration": "./source/lnconstraint.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "lnconstraint",
+                "scopeName": "source.lnconstraint",
+                "path": "./syntaxes/lnconstraint.tmGrammar.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "lnconstraint",
+                "path": "./source/lnconstraint.snippets.json"
+            }
+        ]
+	}
+}

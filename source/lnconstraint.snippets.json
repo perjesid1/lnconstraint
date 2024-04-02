@@ -1,0 +1,33 @@
+{
+    "If":{
+        "prefix":"if",
+        "body":[
+            "if ${1:condition} then",
+            "\t${2}",
+            "endif"
+        ]
+    },
+    "Else":{
+        "prefix":"else",
+        "body":[
+            "else",
+            "\t${0}"
+        ]
+    },
+    "OnCase":{
+        "prefix":"on",
+        "body":[
+            "on case ${1:condition}",
+            "\t${2}",
+            "end case"
+        ]
+    },
+    "Case":{
+        "prefix":"case",
+        "body":[
+            "case ${1:condition}",
+            "\t${2}",
+            "break"
+        ]
+    }
+}
