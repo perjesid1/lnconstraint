@@ -26,12 +26,30 @@
         ],
         "description":"A standard \"case\" structure."
     },
-    "Header Separator":{
-        "prefix":"hs",
+    "Comment Block Separator":{
+        "prefix":"cbs",
         "body":[
             "${LINE_COMMENT}-------------------------------------------------------------------------------"
         ],
-        "description":"The standard header separator."
+        "description":"The standard comment block separator."
+    },
+    "Comment Block":{
+        "prefix":"cb",
+        "body":[
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "${LINE_COMMENT} ${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE} - ${1:CreatedBy} - Initial version of the constraint.",
+            "${LINE_COMMENT}-------------------------------------------------------------------------------"
+        ],
+        "description":"The standard comment block."
+    }
+    ,
+    "Comment Block Extension":{
+        "prefix":"cbe",
+        "body":[
+            "${LINE_COMMENT} ${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE} - ${1:CreatedBy} - ${2:Description of modification}.",
+            "${LINE_COMMENT}-------------------------------------------------------------------------------"
+        ],
+        "description":"The standard comment block."
     },
     "Standard Mapping For Boolean":{
         "prefix":"smfb",
