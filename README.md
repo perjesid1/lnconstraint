@@ -17,7 +17,7 @@ Sadly, the BaaN Board went down as of January 1st 2024, therefore the legacy ele
 - Comment Block (Initial comment block, Comment Block Separator line, Comment Block Extension)
 
 ## License
-Source code, grammars and snippets are provided under the [MIT License](https://mit-license.org/license.txt).
+Source code, grammars and snippets are provided under the [MIT License](https://github.com/perjesid1/lnconstraint/blob/main/LICENSE).
 
 ## Installation
 Copy this folder into the "C:\\Users\\*your username*\\.vscode\\extensions\\" folder.
