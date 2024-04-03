@@ -24,8 +24,8 @@
                     ".lnc"
                 ],
                 "aliases": [
-                    "lnc",
-                    "LNConstraint"
+                    "Infor LN Constraint",
+                    "lnc"
                 ],
                 "configuration": "./source/lnconstraint.configuration.json"
             }

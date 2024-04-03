@@ -5,29 +5,106 @@
             "if ${1:condition} then",
             "\t${2}",
             "endif"
-        ]
+        ],
+        "description":"A standard \"if\" structure."
     },
-    "Else":{
-        "prefix":"else",
-        "body":[
-            "else",
-            "\t${0}"
-        ]
-    },
-    "OnCase":{
+    "On Case":{
         "prefix":"on",
         "body":[
-            "on case ${1:condition}",
+            "on case ${1:variable}",
             "\t${2}",
             "end case"
-        ]
+        ],
+        "description":"A standard \"on case\" structure."
     },
     "Case":{
         "prefix":"case",
         "body":[
-            "case ${1:condition}",
+            "case ${1:value}",
             "\t${2}",
             "break"
-        ]
+        ],
+        "description":"A standard \"case\" structure."
+    },
+    "Header Separator":{
+        "prefix":"hs",
+        "body":[
+            "${LINE_COMMENT}-------------------------------------------------------------------------------"
+        ],
+        "description":"The standard header separator."
+    },
+    "Standard Mapping For Boolean":{
+        "prefix":"smfb",
+        "body":[
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "${LINE_COMMENT} ${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE} - ${1:CreatedBy} - Initial version of the constraint.",
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "",
+            "if [${2:CPQ_FEATURE}] is {\"\",\"ND\"} then",
+            "\t[${4:Z_FEATURE}] = 0",
+            "else",
+            "\t[${5:Z_FEATURE}] = val([${3:CPQ_FEATURE}])",
+            "endif"
+        ],
+        "description":"The standard PCF mapping of a Boolean CPQ feature."
+    },
+    "Standard Mapping For Integer":{
+        "prefix":"smfi",
+        "body":[
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "${LINE_COMMENT} ${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE} - ${1:CreatedBy} - Initial version of the constraint.",
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "",
+            "if [${2:CPQ_FEATURE}] is {\"\",\"ND\"} then",
+            "\t[${4:Z_FEATURE}] = 0",
+            "else",
+            "\t[${5:Z_FEATURE}] = [${3:CPQ_FEATURE}]",
+            "endif"
+        ],
+        "description":"The standard PCF mapping of an Integer/Fractions CPQ feature."
+    },
+    "Standard Mapping For Alphanumeric":{
+        "prefix":"smfa",
+        "body":[
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "${LINE_COMMENT} ${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE} - ${1:CreatedBy} - Initial version of the constraint.",
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "",
+            "if [${2:CPQ_FEATURE}] is {\"\",\"ND\"} then",
+            "\t[${4:Z_FEATURE}] = \"ND\"",
+            "else",
+            "\t[${5:Z_FEATURE}] = [${3:CPQ_FEATURE}]",
+            "endif"
+        ],
+        "description":"The standard PCF mapping of an Alphanumeric CPQ feature."
+    },
+    "Standard Phantom":{
+        "prefix":"sph",
+        "body":[
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "${LINE_COMMENT} ${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE} - ${1:CreatedBy} - Initial version of the constraint.",
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "",
+            "if [${2:Z_FEATURE}] = \"${3:value}\" then",
+            "\tphbom = tcyesno.yes",
+            "else",
+            "\tphbom = tcyesno.no",
+            "endif"
+        ],
+        "description":"The standard phantom constraint."
+    },
+    "Standard Validation":{
+        "prefix":"sval",
+        "body":[
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "${LINE_COMMENT} ${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE} - ${1:CreatedBy} - Initial version of the constraint.",
+            "${LINE_COMMENT}-------------------------------------------------------------------------------",
+            "",
+            "validate = false",
+            "if [${2:Z_FEATURE}] = \"${3:value}\" then",
+            "\tvalidate = true",
+            "endif"
+        ],
+        "description":"The standard validation constraint."
     }
 }
