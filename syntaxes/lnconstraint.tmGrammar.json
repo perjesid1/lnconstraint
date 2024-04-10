@@ -4,6 +4,8 @@
     "fileTypes":[
         ".lnc"
     ],
+    "foldingStartMarker":"(?i:\\b(if|if|else|on case|case|default)\\b)",
+    "foldingStopMarker":"(?i:\\b(else|endif|endif|endcase|break|\\s(?=endcase))\\b)",
     "patterns": [
         {"include": "#comments"},
         {"include": "#keywords"},
@@ -12,13 +14,14 @@
         {"include": "#types"},
         {"include": "#operators"},
         {"include": "#variables"},
-        {"include": "#functions"}
+        {"include": "#functions"},
+        {"include": "#boolean-literal"}
     ],
     "repository":{
         "comments":{
             "begin":"(?=\\|)",
             "beginCaptures":{
-                "1":{"name":"constant.numeric.decimal"}
+                "1":{"name":"constant.numeric.decimal.lnconstraint"}
             },
             "end":"(?<!\\s_)$\\n",
             "patterns":[
@@ -31,15 +34,15 @@
         "keywords":{
             "patterns":[
                 {
-                    "name":"keyword.conditional.lnconstraint",
+                    "name":"keyword.control.conditional.lnconstraint",
                     "match":"(?i:\\b(if|then|else|on case|case|default|\\?|\\:)\\b)"
                 },
                 {
-                    "name":"keyword.conditional.end.lnconstraint",
+                    "name":"keyword.control.conditional.end.lnconstraint",
                     "match":"(?i:\\b(endif|endcase|break)\\b)"
                 },
                 {
-                    "name":"keyword.control.lnconstraint",
+                    "name":"keyword.control.flow.lnconstraint",
                     "match":"(?i:\\b(goto|return)\\b)"
                 }
             ]
@@ -47,7 +50,7 @@
         "numbers":{
             "patterns":[
                 {
-                    "name":"constant.numeric.decimal",
+                    "name":"constant.numeric.decimal.lnconstraint",
                     "match":"(?<!\\w)-?\\d+(\\.\\d+)?"
                 }
             ]
@@ -55,7 +58,7 @@
         "strings":{
             "patterns":[
                 {
-                    "name":"string.quoted.double",
+                    "name":"string.quoted.double.lnconstraint",
                     "match":"\\\"[^\\n\\r\\\"]*\""
                 }
             ]
@@ -63,7 +66,7 @@
         "types":{
             "patterns":[
                 {
-                    "name":"support.type.builtin.lnconstraint",
+                    "name":"storage.type.lnconstraint",
                     "match":"(\\b|\\s)(string|long|double)(\\b|\\s)"
                 }
             ]
@@ -93,6 +96,18 @@
                 {
                     "name":"variable.lnconstraint",
                     "match":"(?<!goto\\s)\\b\\w+\\b(?!(:|\\())"
+                }
+            ]
+        },
+        "boolean-literal": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.true.cs",
+                    "match": "(?<!\\.)\\btrue\\b"
+                },
+                {
+                    "name": "constant.language.boolean.false.cs",
+                    "match": "(?<!\\.)\\bfalse\\b"
                 }
             ]
         }
