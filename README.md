@@ -6,7 +6,8 @@ It contains every language element based on the official Infor LN documentation 
 Sadly, the BaaN Board went down as of January 1st 2024, therefore the legacy elements are based on the partial documentation the creator of this extension pack has saved during his work with Infor LN's PCF module and it's constraints.
 
 ## Key Features
--LN Constraint language highlighting
+- LN Constraint language highlighting
+- Structure folding
 
 ## Snippets
 - if
