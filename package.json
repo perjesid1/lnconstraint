@@ -2,7 +2,7 @@
     "name": "ln-constraint-language-support",
     "displayName": "Infor LN Constraint Language Support",
     "description": "This extension adds syntax highlighting and snippets for Infor LN Constraint Language in VS Code.",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "publisher": "perjesid1",
     "repository": {
         "type": "git",
